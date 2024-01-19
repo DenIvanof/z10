@@ -17,14 +17,19 @@ public class Radio {
         radioStationNumber = newRadioStationNumber;
     }
 
-    public void increaseRadioStation(int radioStationNumber) {
+    public void increaseRadioStation() {
         if (radioStationNumber < 9) {
             radioStationNumber = radioStationNumber + 1;
+        } else {
+            radioStationNumber = 0;
         }
     }
-    public void decreaseRadioStation(int radioStationNumber) {
+
+    public void decreaseRadioStation() {
         if (radioStationNumber > 0) {
             radioStationNumber = radioStationNumber - 1;
+        } else {
+            radioStationNumber = 9;
         }
     }
 
@@ -46,12 +51,14 @@ public class Radio {
         volume = newVolume;
     }
 
-    public void increaseVolume(int volume) {
+    public void increaseVolume() {
+
         if (volume < 100) {
             volume = volume + 1;
         }
     }
-    public void decreaseVolume(int volume) {
+
+    public void decreaseVolume() {
         if (volume > 0) {
             volume = volume - 1;
         }
