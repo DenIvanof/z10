@@ -117,7 +117,6 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    // Максимально бесполезные тесты но по другому вообще не могу придумать чтобы было 100% покрытие
     @Test
     public void volumeMoreMax() {
         rad.setVolume(101);
@@ -137,4 +136,5 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
 }
