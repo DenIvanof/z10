@@ -1,11 +1,26 @@
 package ru.netology.radio;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
-    private int radioStationNumber;
+    private int minRadioStationNumber = 0;
+    private int maxRadioStationNumber;
+    private int currentRadioStationNumber;
     private int volume;
 
+    public Radio(int radioStation) {
+        this.maxRadioStationNumber = radioStation - 1;
+        this.currentRadioStationNumber = minRadioStationNumber;
+    }
+
     public int getRadioStationNumber() {
-        return radioStationNumber;
+        return currentRadioStationNumber;
     }
 
     public int getVolume() {
@@ -13,13 +28,13 @@ public class Radio {
     }
 
     public void setRadioStationNumber(int newRadioStationNumber) {
-        if (newRadioStationNumber < 0) {
+        if (newRadioStationNumber < minRadioStationNumber) {
             return;
         }
-        if (newRadioStationNumber > 9) {
+        if (newRadioStationNumber > maxRadioStationNumber) {
             return;
         }
-        radioStationNumber = newRadioStationNumber;
+        currentRadioStationNumber = newRadioStationNumber;
     }
 
     public void setVolume(int newVolume) {
@@ -33,18 +48,18 @@ public class Radio {
     }
 
     public void increaseRadioStation() {
-        if (radioStationNumber < 9) {
-            radioStationNumber = radioStationNumber + 1;
+        if (currentRadioStationNumber < maxRadioStationNumber) {
+            currentRadioStationNumber = currentRadioStationNumber + 1;
         } else {
-            radioStationNumber = 0;
+            currentRadioStationNumber = minRadioStationNumber;
         }
     }
 
     public void decreaseRadioStation() {
-        if (radioStationNumber > 0) {
-            radioStationNumber = radioStationNumber - 1;
+        if (currentRadioStationNumber > minRadioStationNumber) {
+            currentRadioStationNumber = currentRadioStationNumber - 1;
         } else {
-            radioStationNumber = 9;
+            currentRadioStationNumber = maxRadioStationNumber;
         }
     }
 
