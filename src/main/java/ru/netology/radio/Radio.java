@@ -1,17 +1,23 @@
 package ru.netology.radio;
 
 public class Radio {
+
     private int minRadioStationNumber = 0;
-    private int maxRadioStationNumber;
+    private int maxRadioStationNumber = 7;
     private int currentRadioStationNumber;
     private int volume;
     private int maxVolume = 100;
     private int minVolume = 0;
 
+
+    public Radio() {
+    }
+
     public Radio(int radioStation) {
         this.maxRadioStationNumber = radioStation - 1;
         this.currentRadioStationNumber = minRadioStationNumber;
     }
+
 
     public int getRadioStationNumber() {
         return currentRadioStationNumber;
